@@ -1,10 +1,10 @@
-import number as num
+import numpy as num
 import pandas as pan
 
 miles = pan.Series ([165, 160, 155, 150, 155, 160, 160, 160, 95],
             index = ['First Day','Second Day','Third Day','Fourth Day','Fifth Day','Sixth Day', ' Seventh Day','Eighth Day','Ninth Day','Tenth Day'] )
 dailytotal = (miles.cumsum())
 print (dailytotal)
-for key,  value in dailytotal.iteritems():
-  day = miles[key]
+for key,  value in miles.iteritems():
+  day = value
 print (key, day)
