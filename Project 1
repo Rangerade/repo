@@ -1,0 +1,30 @@
+# Displaying the 5 rows of the information of flight arrivals
+airline_data=pd.read_csv (
+
+airline_data()
+
+# By calculating the Alaska flights for each destinations, also should be displaying the results of equation
+airline_data['Alaska_Flights'] = airline_data['Alaska_Delayedtime'] + airline_data["Alaska_Ontime"]
+airline_data['Alaska_Ontime_Delay'] = (airline_data['Alaska_Flights'] / airline_data['Alaska_Delayedtime']) * 100
+
+    airline_data['Alaska_percent_Ontime']
+    
+# Using the same equation for the AM West flights
+
+
+airline_data['AM_Flights'] = airline_data['AM_Delayedtime'] + airline_data['AM_Ontime']
+airline_data['AM_Delay_percent'] = (airline_data['AM_Delayedtime'] / airline_data['AM_Flights']) * 100
+
+    airline_data['AM_Delay_percent']
+
+# Using an if else statement to determine the which is best percentage for flights to destinations
+
+
+if ['Alaska_percent_Ontime'] > ['AM_Delay_percent']:
+    airline_data['Most_Delaytime'] = 'Alaska'
+else : airline_data['Most_Delaytime'] = 'AM'
+
+
+
+# After the computing of this if else statement followed by the equations above, passengers should use 'Alaska' in order 
+# arrive ontime for cities like Los Angeles, Seattle, San Diego, Phoenix and San Franciso
