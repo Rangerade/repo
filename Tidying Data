@@ -1,0 +1,28 @@
+# I am unable to upload the csv file into my program as my computer coudldn't compute it
+https://github.com/tidyverse/nycflights13/blob/main/data-raw/airports.csv
+
+# Program for most northernmost airport
+
+airports = pd.read_csv()
+airports.head()
+airports.sort_values("lat",ascending=False).head(8)
+
+# The result shows the airport with the highest latitude was Dillant Hopkins Airport at the time, 
+# Doing more research to confirm the data and found that while Dillant Hopkins Airport is the northernmost airport. 
+
+# Program determing the most easternmost airport
+
+df = pd.read_csv()
+northeast_airports = df[(df['lat'] > 44) & (df['lat'] <= 50) & (df['lon'] >= -75) & (df['lon'] <= -65)]
+northeast_airports.sort_values('lat', ascending=False)
+
+# In order to determine the easternmost airport, the dataset show airports with a latitude in the range of 44 to 50 and a longitude of -65 to -75 which included airports on the far eastern section of the USA.
+
+# Which New York airport has the windiest weather on February 12 2013
+
+speed = pd.read_csv()
+speed.head()
+speed[(speed["month"]==2) & (speed["day"]==12) & (speed["year"]==2013)].sort_values("wind_speed", ascending=False)
+
+# The data set above shows that the windiest day at a New York City airport on February 12th, 2013 occurred at EWR but this data is an outlier as the windspeed is false. 
+# The windiest airport was LGA totaling a windspeed of 23 mph.
