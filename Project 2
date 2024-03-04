@@ -1,0 +1,17 @@
+# Due to misinform data/information and no response from selected classmates, I didn't use any of the Week 5 dicussion dataset. I researched another dataset online
+# Using a dataset that calculates unemployment rate during COVID-19 in 5 randomly selected states during 2020
+
+
+df <- read.csv(file = theUr2, header = TRUE, apr = ",")
+head(df)
+  colnames(df)
+
+# Reorganizing code for a viewing column from greatest to least in 2020
+
+df2<-rename(df,State=State.Area, Unemployment_percentage=Percent.....of.Labor.Force.Unemployed.in.State.Area)
+head(df2)
+
+New York<-subset(df2,State=="New York")
+ggplot(NewYork, aes(x=NewYork$Year, y=NewYork$Unemployment_percentage, fill=NewYork$Month)) + geom_line(color = "blue")
+
+# Using this code, a graph should generate and display showcasing the unemployment rate in New York that it calculated between 5.4% & 16% during 2020
