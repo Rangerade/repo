@@ -1,0 +1,23 @@
+dbListTables(movieconn)
+
+# Showing data into a table
+mvs = dbSendQuery(movieconn, "select * from Movies;")
+movies = fetch(mvs)
+datatable ( movies )
+
+# Showing data into a review table
+dbSendQuery(movieconn, "select * from Reviews;")
+  fetch(mvs)
+datatable ()
+
+# Adding ratings for each movies in the dataframe
+setDT()[, Mean_Rating := round(mean(Rating),digits = 1), by = Movie_Name]
+datatable (mvs)
+
+# Displaying the movies and rating of the movies
+final_dataset = merge(movies, by="Movie_Name")
+final_dataset ()
+
+# Showcasing a graph with the Movies rating
+slices = (final_dataset$Rating)
+pie(slices, main="Pie Graph of Movies with ratings", cex=0.11)
