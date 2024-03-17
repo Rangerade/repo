@@ -1,0 +1,38 @@
+import pandas  as pan
+import seaborn as seab
+import matplotlib
+
+# load the dataset into Pandas Dataset within the code
+
+autompg = pan.read_csv ('https://archive.ics.uci.edu/ml/datasets/Auto+MPG')
+
+# provided dataset with columns 
+
+autompg.head()
+column_name = ['MPG','Cylinders','Displacement','Horsepower','Weight','Acceleration','Model Year','Origin','Car Name']
+autompg.pan.read_csv ('https://archive.ics.uci.edu/ml/datasets/Auto+MPG')
+
+# Missing values in only 6 of the Horsepower column, were replaced with a '?'
+
+autompg.replace('?', num.nan, inplace=True)
+autompg['Horsepower'] = autompg['Horsepower'].astype(float)
+
+# Alter the Origin column values with a different placeholder
+
+autompg['Origin'].replace(1,'USA',inplace=True)
+
+autompg['Origin'].replace(2,'Asia',inplace=True)
+
+autompg['Origin'].replace(3,'Europe',inplace=True)
+
+
+# Wanted to create a bar graph chart to display distribution of cylinders of Origin
+
+seab.barplot(data = autompg,x = 'Origin', y = 'Cylinders', hue = 'Cylinders')
+seab.barplot(data = autompg,x = 'Cylinders', y = 'Origin', hue = 'Origin')
+# creating a graph but it's a scatter chart
+
+seab.scatterplot(data = autompg, x = 'Weight', y = 'Horsepower' , hue = 'MPG' )
+
+
+ p = seab.barplotplot(x = 'Horsepower', y = 'Weight', color = "g")
