@@ -1,0 +1,40 @@
+import  pandas as pd
+import sql
+import create_engine
+
+con = sql.connect ()
+tracks = pd.read_sql_query("SELECT * from Track", con=con)
+
+# Showcasing the table with these variables
+# Performing SQL
+sql = '''SELECT c.LastName, c.FirstName, i.InvoiceId, il.InvoiceId, t.Name, a.Title
+         FROM Customer as c
+         INNER JOIN Invoice as i
+         ON c.CustomerId = i.CustomerId
+         INNER JOIN InvoiceLine as il
+         ON i.InvoiceId = il.InvoiceId
+         INNER JOIN Track as t
+         ON il.TrackId = t.TrackId
+         INNER JOIN Album as a
+         ON t.AlbumId = a.AlbumId
+         ORDER BY c.LastName, c.FirstName'''
+
+con = sql.connect()
+pd.read_sql_query(sql , con=con).head(5)
+
+# Updating & verifying the information
+sql = '''SELECT c.LastName, c.FirstName, i.InvoiceId, t.Name, a.Title
+         FROM Customer as c
+         INNER JOIN Invoice as i
+         ON c.CustomerId = i.CustomerId
+         INNER JOIN InvoiceLine as il
+         ON i.InvoiceId = il.InvoiceId
+         INNER JOIN Track as t
+         ON il.TrackId = t.TrackId
+         INNER JOIN Album as a
+         ON t.AlbumId = a.AlbumId
+         WHERE a.TItle = 'Sex Machine'
+         ORDER BY c.LastName, c.FirstName'''
+         
+con = sql.connect()
+pd.read_sql_query(sql , con=con)
