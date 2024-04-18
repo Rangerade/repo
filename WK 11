@@ -1,0 +1,18 @@
+import requests
+import pandas as pd
+
+# Define a function to get JSON data from the New York Times API
+
+def get_nyt_json(api_key, endpoint, params={}):
+    base_url = "https://api.nytimes.com/svc/{endpoint}"
+    params['api-key'] = api_key
+    response = requests.get(base_url, params=params)
+    return response.json()
+
+# Define a function to convert JSON data to a pandas DataFrame
+
+def json_to_dataframe(json_data):
+    
+# Assuming the JSON data is a list of records
+
+    return pd.DataFrame(json_data)
