@@ -1,0 +1,27 @@
+import panda
+url < - 'https://archive.ics.uci.edu/dataset/73/mushroom'
+
+mushrooms <- read.table(url, sep=",", header=FALSE, stringsAsFactors = FALSE)
+head(mushrooms)
+
+# renaming into subset of columns
+
+mushrooms2<-plyr::rename(mushrooms,c("Q1"="class","Q2"="cap-shape","Q3"="cap-surface","Q4"="cap-color","Q9"="gill-size"))
+
+mushrooms3<-mushrooms2[c("class","cap-shape","cap-surface","cap-color","gill-size")]
+head(mushrooms3)
+)
+
+# Creating abbreviations to be in table
+
+mushrooms3class<-revalue(mushrooms3$class,c("1"="poisonous"))
+mushrooms3class<-revalue(mushrooms3$class,c("0"="edible"))
+
+mushrooms3`gill-size`<-revalue(mushrooms3$`gill-size`,c("1"="broad"))
+mushrooms3`gill-size`<-revalue(mushrooms3$`gill-size`,c("0"="narrow"))
+
+mushrooms3`cap-surface`<-revalue(mushrooms3$`cap-surface`,c("0"="fibrous"))
+mushrooms3`cap-surface`<-revalue(mushrooms3$`cap-surface`,c("1"="grooves"))
+mushrooms3$`cap-surface`<-revalue(mushrooms3$`cap-surface`,c("1"="scaly"))
+mushrooms3$`cap-surface`<-revalue(mushrooms3$`cap-surface`,c("0"="smooth"))
+head(mushrooms3)
